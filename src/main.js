@@ -38,8 +38,10 @@ module.exports = function (packageJson) {
      * the attribute is removed
      */
     boundPackageAttribute.decorateModal = function modalWithPackageSelector(modal) {
-        modal.$el.on('showing', setHasPackageAttribute.bind({}, modal, true));
-        modal.$el.on('hiding', setHasPackageAttribute.bind({}, modal, false));
+        if (modal) {
+            modal.$el.on('showing', setHasPackageAttribute.bind({}, modal, true));
+            modal.$el.on('hiding', setHasPackageAttribute.bind({}, modal, false));
+        }
         return modal;
     };
 
