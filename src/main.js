@@ -13,7 +13,7 @@ module.exports = function (packageJson) {
      */
     boundPackageAttribute.decorate = function (el) {
         var currentVal = (el.getAttribute(packageAttribute) || '').trim();
-        var currentPackageAttrs = currentVal.split(' ');
+        var currentPackageAttrs = currentVal.length ? currentVal.split(' ') : [];
         var newVal;
         // Add this package attribute value if it's not already there
         if (currentPackageAttrs.indexOf(boundPackageAttribute.value) === -1) {
@@ -38,8 +38,10 @@ module.exports = function (packageJson) {
      * the attribute is removed
      */
     boundPackageAttribute.decorateModal = function modalWithPackageSelector(modal) {
-        modal.$el.on('showing', setHasPackageAttribute.bind({}, modal, true));
-        modal.$el.on('hiding', setHasPackageAttribute.bind({}, modal, false));
+        if (modal) {
+            modal.$el.on('showing', setHasPackageAttribute.bind({}, modal, true));
+            modal.$el.on('hiding', setHasPackageAttribute.bind({}, modal, false));
+        }
         return modal;
     };
 
