@@ -17,7 +17,6 @@ function prefixCss(prefix, cssText) {
         // if this is something like @font-face, it can't be prefixed so continue
         if (selectors.length === 1 && selectors[0].trim().indexOf('@') === 0) {
             results.push(selectors.join(','), match[2]);
-            console.log('skipping', match);
             continue;
         }
 
