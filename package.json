@@ -1,6 +1,6 @@
 {
   "name": "livefyre-package-attribute",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "",
   "main": "index.js",
   "scripts": {
@@ -16,5 +16,8 @@
     "url": "https://github.com/gobengo/livefyre-package-attribute/issues"
   },
   "homepage": "https://github.com/gobengo/livefyre-package-attribute",
-  "devDependencies": {}
+  "devDependencies": {},
+  "dependencies": {
+    "rework": "git://github.com/gobengo/rework.git"
+  }
 }
